@@ -6,10 +6,14 @@ import { useClerk, UserButton } from "@clerk/nextjs";
 import { useAppContext } from "@/context/AppContext";
 import ChatLabel from "./ChatLabel";
 
-const Sidebar = ({ expand, setExpand }) => {
+interface SidebarProps {
+  expand: boolean;
+  setExpand: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const Sidebar = ({ expand, setExpand }: SidebarProps) => {
   const { openSignIn } = useClerk();
   const { user } = useAppContext();
-  const [openMenu, setOpenMenu] = useState({id:0, open:false});
+  const [openMenu, setOpenMenu] = useState({ id: 0, open: false });
   return (
     <div
       className={`flex flex-col justify-between bg-[#212327] pt-7 transition-all z-50 max-md:absolute max-md:h-screen ${

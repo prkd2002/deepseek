@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import Image from "next/image";
 
+interface PromptBoxProps{
+    isLoading:boolean;
+    setIsLoading:React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const PromptBox = ({isLoading, setIsLoading}) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const PromptBox = ({isLoading, setIsLoading}:PromptBoxProps) => {
   const [prompt, setPrompt] = useState("");
   return (
     <form
