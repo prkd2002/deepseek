@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
   // Fix: headers() returns the object directly, no need for await
   const headerPayLoad = headers();
   const svixHeaders = {
-    "svix-id":  (await headerPayLoad).get("svix-id") || "",
+    "svix-id":   (await headerPayLoad).get("svix-id") || "",
     "svix-timestamp": (await headerPayLoad).get("svix-timestamp") || "",
     "svix-signature": (await headerPayLoad).get("svix-signature") || "",
   };
